@@ -38,8 +38,8 @@ git merge feature/readme      # объединить изменения
 git remote add origin https://github.com/ИМЯ_ПОЛЬЗОВАТЕЛЯ/ИМЯ_РЕПОЗИТОРИЯ.git
 git push -u origin main
 ```
-Корутины 
-Корутины (Coroutines)
+# Корутины
+## Корутины (Coroutines)
 
 1. Что такое корутины?
 
@@ -76,14 +76,14 @@ git push -u origin main
 
 Пример 1. Простая корутина
 
-'''import asyncio
+```import asyncio
 async def hello():
     print("Привет!")
     await asyncio.sleep(1)
     print("Корутина завершена")
 asyncio.run(hello())
-'''
-Объяснение:
+```
+## Объяснение:
 
 * async def создаёт асинхронную функцию.
 * await asyncio.sleep(1) приостанавливает выполнение на одну секунду.
@@ -91,7 +91,7 @@ asyncio.run(hello())
 
 Пример 2. Несколько корутин
 
-'''import asyncio
+```import asyncio
 async def task1():
     print("Задача 1 началась")
     await asyncio.sleep(2)
@@ -104,14 +104,14 @@ async def main():
     await task1()
     await task2()
 asyncio.run(main())
-'''
+```
 Объяснение:
 
 В этом примере две корутины выполняются последовательно. Сначала завершается первая задача, затем начинается вторая.
 
 Пример 3. Параллельное выполнение корутин
 
-import asyncio
+```import asyncio
 async def task(name, seconds):
     print(f"{name}: начало")
     await asyncio.sleep(seconds)
@@ -123,103 +123,13 @@ async def main():
         task("Задача 3", 1)
     )
 asyncio.run(main())
+```
 
-Объяснение:
+## Объяснение:
 
 Функция asyncio.gather() позволяет выполнять несколько корутин одновременно в рамках одного цикла событий.
 
 Все задачи запускаются вместе, поэтому общее время ожидания составляет примерно 3 секунды, а не 6.
-
-Пример 4. Использование create_task()
-
-import asyncio
-async def download():
-    print("Начало загрузки")
-    await asyncio.sleep(2)
-    print("Загрузка завершена")
-async def main():
-    task = asyncio.create_task(download())
-    print("Основная программа продолжает работу")
-    await task
-asyncio.run(main())
-
-Объяснение:
-
-asyncio.create_task() создаёт отдельную задачу.
-
-Пока корутина ожидает завершения загрузки, основная программа может выполнять другие действия.
-
-Пример 5. Возвращение результата из корутины
-
-import asyncio
-async def calculate():
-    await asyncio.sleep(1)
-    return 100
-async def main():
-    result = await calculate()
-    print("Результат:", result)
-asyncio.run(main())
-
-Объяснение:
-
-Корутина может возвращать результат с помощью return.
-
-С помощью await можно получить этот результат после завершения выполнения функции.
-
-Пример 6. Передача параметров в корутину
-
-import asyncio
-async def greeting(name):
-    await asyncio.sleep(1)
-    print(f"Привет, {name}!")
-async def main():
-    await greeting("Александр")
-    await greeting("Иван")
-asyncio.run(main())
-
-Объяснение:
-
-В корутины можно передавать параметры так же, как и в обычные функции.
-
-Пример 7. Обработка ошибок
-
-import asyncio
-async def task():
-    try:
-        print("Выполнение задачи")
-        await asyncio.sleep(1)
-        raise ValueError("Произошла ошибка")
-    except ValueError as error:
-        print("Ошибка:", error)
-async def main():
-    await task()
-asyncio.run(main())
-
-Объяснение:
-
-Корутины поддерживают обработку исключений с помощью try и except.
-
-Это позволяет обрабатывать ошибки во время выполнения асинхронных операций.
-
-Пример 8. Ожидание нескольких задач
-
-import asyncio
-async def operation(number):
-    await asyncio.sleep(number)
-    return f"Операция {number} завершена"
-async def main():
-    results = await asyncio.gather(
-        operation(1),
-        operation(2),
-        operation(3)
-    )
-    for result in results:
-        print(result)
-asyncio.run(main())
-
-Объяснение:
-
-Несколько корутин запускаются одновременно, а результаты собираются в список.
 
 5. Преимущества корутин
 
@@ -243,7 +153,7 @@ asyncio.run(main())
 
 Корутины (Coroutines) — лёгкие задачи, которые могут приостанавливать и возобновлять своё выполнение.
 
-Основные отличия:
+## Основные отличия:
 
 Потоки	Корутины
 Управляются ОС	Управляются средой выполнения
