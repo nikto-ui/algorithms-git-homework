@@ -76,13 +76,13 @@ git push -u origin main
 
 Пример 1. Простая корутина
 
-‘’’import asyncio
+'''import asyncio
 async def hello():
     print("Привет!")
     await asyncio.sleep(1)
     print("Корутина завершена")
 asyncio.run(hello())
-‘’’
+'''
 Объяснение:
 
 * async def создаёт асинхронную функцию.
@@ -91,7 +91,7 @@ asyncio.run(hello())
 
 Пример 2. Несколько корутин
 
-‘’’import asyncio
+'''import asyncio
 async def task1():
     print("Задача 1 началась")
     await asyncio.sleep(2)
@@ -104,7 +104,7 @@ async def main():
     await task1()
     await task2()
 asyncio.run(main())
-‘’’
+'''
 Объяснение:
 
 В этом примере две корутины выполняются последовательно. Сначала завершается первая задача, затем начинается вторая.
